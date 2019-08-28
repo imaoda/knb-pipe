@@ -42,6 +42,7 @@ class EventCenter extends Events {
     _publish(type, data, byStorage = false) {
         return new Promise((resolve, reject) => {
             this.bridge.publish({
+                type: 'native',
                 action: this.emitChannel,
                 data: {
                     type,
@@ -63,6 +64,7 @@ class EventCenter extends Events {
     _subscribe() {
         return new Promise((resolve, reject) => {
             this.bridge.subscribe({
+                type: 'native',
                 action: this.listenChannel,
                 success: (data) => {
                     this.subscribedId = data.subId;
@@ -73,6 +75,7 @@ class EventCenter extends Events {
                     reject(new Error('注册 KNB.subscribe 监听失败'));
                 },
                 handle: (data) => {
+                    data = data.data
                     if (data.type) {
                         if (data.byStorage) {
                             this._getStorage(`${this.storagePrefix}${data.type}`).then(d => this.emit(data.type, d));
@@ -93,6 +96,7 @@ class EventCenter extends Events {
                 return;
             }
             this.bridge.unsubscribe({
+                type: 'native',
                 subId: this.subscribedId,
                 success() {
                     this.subscribedId = null;
