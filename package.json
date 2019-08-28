@@ -1,0 +1,16 @@
+{
+  "author": {
+    "name": "wangyongfeng"
+  },
+  "dependencies": {
+    "mmevents": "^1.0.1"
+  },
+  "description": "通过knb实现 webview rn 等容器复用 action 的通信",
+  "keywords": [
+    "KNB"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "knb-pipe",
+  "version": "0.0.4"
+}
