@@ -1,6 +1,6 @@
 import Events from 'mmevents';
 
-class EventCenter extends Events {
+class Pipe extends Events {
     constructor(props) {
         super();
         const {
@@ -151,5 +151,5 @@ class EventCenter extends Events {
         });
     }
 }
-
-export default EventCenter;
+// window.Pipe = Pipe
+export default Pipe;
