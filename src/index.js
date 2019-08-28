@@ -98,7 +98,7 @@ class Pipe extends Events {
             this.bridge.unsubscribe({
                 type: 'native',
                 subId: this.subscribedId,
-                success() {
+                success: () => {
                     this.subscribedId = null;
                     resolve();
                 },
